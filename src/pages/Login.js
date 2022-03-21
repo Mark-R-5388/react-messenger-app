@@ -6,21 +6,21 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Register() {
   const [data, setData] = useState({
-    name: '',
+    
     email: '',
     password: '',
     error: null,
     loading: false,
   });
 
-  const { name, email, password, error, loading } = data;
+  const {  email, password, error, loading } = data;
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setData({ ...data, error: null, loading: true });
-    if (!name || !password || !email) {
+    if ( !password || !email) {
       setData({ ...data, error: 'All fields are required' });
     }
     try {
@@ -31,13 +31,13 @@ export default function Register() {
       );
       await setDoc(doc(db, 'users', result.user.uid), {
         uid: result.user.uid,
-        name,
+        
         email,
         createdAt: Timestamp.fromDate(new Date()),
         isOnline: true,
       });
       setData({
-        name: '',
+        
         email: '',
         password: '',
         error: null,
