@@ -89,7 +89,7 @@ export default function Register() {
           </div>
 
           <div className="btn_container">
-            <button className="btn_register" disabled={loading}>Register</button>
+            <button className="btn_register" disabled={loading}>{loading ? "Registering..." : 'Register'}</button>
           </div>
           {error ? <p className="error">{error}</p> : null}
         </form>
