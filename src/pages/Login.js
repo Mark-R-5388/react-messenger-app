@@ -29,13 +29,7 @@ export default function Login() {
       await updateDoc(doc(db,'users', (await result).user.uid), {
         isOnline: true
       })
-      // await setDoc(doc(db, 'users', result.user.uid), {
-      //   uid: result.user.uid,
-        
-      //   email,
-      //   createdAt: Timestamp.fromDate(new Date()),
-      //   isOnline: true,
-      // });
+    
       setData({
         email: '',
         password: '',
